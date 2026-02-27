@@ -60,10 +60,6 @@ class AuthController extends Controller
         ]);
     }
 
-    public function pictures(Request $request) {
-        return response()->json();
-    }
-
     public function logout(Request $request) {
         /** @var PersonalAccessToken|null $token */
         $token = $request->user()->currentAccessToken();
