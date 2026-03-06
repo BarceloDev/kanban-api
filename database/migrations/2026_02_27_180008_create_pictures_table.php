@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('title');
             $table->text('description')->nullable();
             $table->date('deadline')->nullable();
-
             $table->string('access_token', 64)
                 ->unique();
 

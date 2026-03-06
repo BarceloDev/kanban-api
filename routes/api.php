@@ -25,6 +25,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/pictures/{picture}/tasks', [TaskController::class, 'index']);
     Route::post('/pictures/{picture}/tasks', [TaskController::class, 'store']);
     Route::get('/pictures/{picture}', [PicturesController::class, 'show']);
+    Route::patch('/pictures/{picture}/pin', [PicturesController::class, 'togglePin']);
 
     Route::put('/tasks/{task}', [TaskController::class, 'update']);
     Route::delete('/tasks/{task}', [TaskController::class, 'destroy']);
