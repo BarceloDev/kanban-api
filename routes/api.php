@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\NotificationsController;
 use App\Http\Controllers\PicturesController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Http\Request;
@@ -29,6 +30,13 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::put('/tasks/{task}', [TaskController::class, 'update']);
     Route::delete('/tasks/{task}', [TaskController::class, 'destroy']);
+
+    Route::get('/notifications', [NotificationsController::class, 'index']);
+    Route::post('/notifications/send', [NotificationsController::class, 'store']);
+    Route::patch('/notifications/{notification}/read', [NotificationsController::class, 'markAsRead']);
+    Route::patch('/notifications/read-all', [NotificationsController::class, 'markAllAsRead']);
+    Route::delete('/notifications/{notification}', [NotificationsController::class, 'destroy']);
+    Route::delete('/notifications', [NotificationsController::class, 'deleteAll']);
 
     Route::post('/logout', [AuthController::class, 'logout']);
 });
